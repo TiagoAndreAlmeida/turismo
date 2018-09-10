@@ -1,6 +1,8 @@
 import React from 'react';
 import { StyleSheet, View } from 'react-native';
-import { Container, Header, Content, Card, CardItem, Body, Text } from 'native-base';
+//import { Container, Header, Content, Card, CardItem, Body, Text, Root } from 'native-base';
+
+import RootStack from './Routes';
 
 export default class App extends React.Component {
 
@@ -28,35 +30,13 @@ export default class App extends React.Component {
     //verifica se já carregou as fonts
     if(this.state.isLoading){
       return (
-        <View style={styles.container}>
+        <View >
         </View>
       );
     }else{
       return (
-        <Container>
-        <Header />
-        <Content>
-          <Card>
-            <CardItem>
-              <Body>
-                <Text>
-                   Your text here
-                </Text>
-              </Body>
-            </CardItem>
-          </Card>
-        </Content>
-      </Container>
+        <RootStack />
       );
     }
   }
 }
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-});
