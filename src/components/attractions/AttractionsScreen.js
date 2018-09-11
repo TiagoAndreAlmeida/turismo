@@ -35,7 +35,11 @@ export default class AttractionsScreen extends Component {
               <CardItem>
                 <Body>
                   <TouchableWithoutFeedback
-                  onPress={() => alert(item.title)}>
+                  onPress={() => this.props.navigation.push(
+                    'Detalhe', {
+                      item: item
+                    }
+                  )}>
                     <Image source={{uri: item.uri }} style={{height: 200, width: 325, flex: 1}}/>
                   </TouchableWithoutFeedback>
                 </Body>
