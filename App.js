@@ -1,7 +1,7 @@
 import React from 'react';
-import { StyleSheet, View } from 'react-native';
-//import { Container, Header, Content, Card, CardItem, Body, Text, Root } from 'native-base';
+import { View } from 'react-native';
 
+//carregando gerenciador de rota das telas
 import RootStack from './Routes';
 
 export default class App extends React.Component {
