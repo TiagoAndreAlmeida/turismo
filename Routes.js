@@ -10,6 +10,12 @@ import AttractionsScreen from './src/components/attractions/AttractionsScreen';
 //tela de detalhe
 import DetalheScreen from './src/components/detalhe/DetalheScreen';
 
+//Tela de Login
+import LoginScreen from './src/components/login/LoginScreen';
+
+//Tela de Registro
+import RegisterScreen from './src/components/login/RegisterScreen';
+
 /* 
     RootStack recebe um React.Component do createStackNavigator
     Assim podemos exporta é utilizar como um component no App.js
@@ -17,11 +23,13 @@ import DetalheScreen from './src/components/detalhe/DetalheScreen';
 const RootStack = createStackNavigator(
     {   //lista de telas
         Attractions: AttractionsScreen,
-        Detalhe: DetalheScreen
+        Detalhe: DetalheScreen,
+        Login: LoginScreen,
+        Register: RegisterScreen
     },
     {
         //configurações
-        initialRouteName: 'Attractions',
+        initialRouteName: 'Login',
         headerMode: 'none'
     }
 
