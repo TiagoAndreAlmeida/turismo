@@ -5,7 +5,9 @@ import {Container, Header, Title, Right, Card, CardItem, Left, Body, Content, Te
 export default class DetalheScreen extends Component {
   render () {
     const item = this.props.navigation.getParam('item', 'Erro');
+   
     return (
+      
       <Container>
           <Header>
             <Left>
@@ -20,15 +22,15 @@ export default class DetalheScreen extends Component {
           </Header>
 
           <Content>
-            <Card style={{flex: 0}} >
+            <Card style={{flex: 0}}>
               <CardItem bordered>
                   <Body>
-                    <Text>{item.title}</Text>
+                    <Text style={{color: 'blue', fontWeight: 'bold', fontSize: 23}}>{item.title}</Text>
                   </Body>
               </CardItem>
               <CardItem bordered>
                 <Body>
-                  <Image source={{uri: item.uri }} style={{height: 200, width: 350, flex: 1}}/>
+                  <Image source={{uri: item.uri }} style={{height: 300, width: 325, flex: 1}}/>
                 </Body>
               </CardItem>
               <CardItem bordered>
@@ -37,11 +39,19 @@ export default class DetalheScreen extends Component {
                   <Icon name="compass"/> Localização: {item.localizacao}</Text>
                 <Text>
                   <Icon name="grid"/> Sobre: {item.descib}</Text>
+                <Text>
+                  <Icon name="apps"/> Tipo: {item.tipo}</Text>
+                <Text>
+                  <Icon name="navigate"/> Cidade: {item.cidade}</Text>
+                <Text>
+                  <Icon name="map"/> CEP: {item.cep}</Text>
               </Body>
               </CardItem>            
             </Card>
           </Content>
     </Container>
     )
+    
   }
 }
+
