@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
-import { Alert, Button, TextInput, View, StyleSheet } from 'react-native';
+import { StyleSheet } from 'react-native';
+import {Container, Text, Header, Content, Button,
+  Input, Label, Form, Item, Body, Title, Left, Right} from 'native-base';
 
 export default class Register extends Component {
   constructor(props) {
@@ -7,65 +9,54 @@ export default class Register extends Component {
     
     this.state = {
       username: '',
-      password: '',
-      confirmpassword:'',
+      email:'',
+      password: ''
     };
-  }
-  
-  onLogin() {
-    const { username, password, confirmpassword } = this.state;
   }
 
   render() {
     return (
-        <View style={styles.container}>
-            <TextInput
-            value={this.state.username}
-            onChangeText={(username) => this.setState({ username })}
-            placeholder={'Username'}
-            style={styles.input}
-            />
-
-            <TextInput
-            value={this.state.password}
-            onChangeText={(password) => this.setState({ password })}
-            placeholder={'Password'}
-            secureTextEntry={true}
-            style={styles.input}
-            />
-
-            <TextInput
-            value={this.state.password}
-            onChangeText={(password) => this.setState({ password })}
-            placeholder={'Confirm Password'}
-            secureTextEntry={true}
-            style={styles.input}
-            />
-            
-            <Button
-            title={'Register'}
-            style={styles.input}
-            onPress={() => this.props.navigation.push('Login')}        
-            />
-
-        </View>
+      <Container style={styles.container}>
+      <Header>
+        <Left />
+        <Body>
+          <Title>Cadastro</Title>
+        </Body>
+        <Right />
+      </Header>
+      <Content padder>
+        <Form style={styles.content}>
+          <Item floatingLabel>
+            <Label>Usuário</Label>
+            <Input onChangeText={(value) => this.setState({username: value})}/>
+          </Item>
+          <Item floatingLabel>
+            <Label>E-mail</Label>
+            <Input onChangeText={(value) => this.setState({email: value})}/>
+          </Item>
+          <Item floatingLabel>
+            <Label>Senha</Label>
+            <Input onChangeText={(value) => this.setState({password: value})}/>
+          </Item>
+        </Form>
+        <Button 
+        full 
+        light 
+        style={styles.button}
+        onPress={() => this.props.navigation.navigate('Register')}>
+          <Text>Cadastrar</Text>
+        </Button>
+      </Content>
+    </Container>
     );
   }
 }
 
 const styles = StyleSheet.create({
   container: {
-    flex: 1,
-    alignItems: 'center',
-    justifyContent: 'center',
-    backgroundColor: '#ecf0f1',
+    flex: 1
   },
-  input: {
-    width: 200,
-    height: 44,
-    padding: 10,
-    borderWidth: 1,
-    borderColor: 'black',
-    marginBottom: 10,
-  },
+  button: {
+    marginTop: 10
+  }
 });
