@@ -3,6 +3,8 @@ import { StyleSheet } from 'react-native';
 import {Container, Text, Header, Content, Button,
   Input, Label, Form, Item, Body, Title, Left, Right} from 'native-base';
 
+import {recordUser} from '../../services/UserService';
+
 export default class Register extends Component {
   constructor(props) {
     super(props);
@@ -12,6 +14,16 @@ export default class Register extends Component {
       email:'',
       password: ''
     };
+  }
+
+  recordUser () {
+    if(this.state.username != '' && this.state.password != ''){
+      recordUser(this.state);
+      this.props.navigation.navigate('Login');
+    }else{
+      alert('Senha/Usuário são requeridos')
+    }
+    
   }
 
   render() {
@@ -43,7 +55,7 @@ export default class Register extends Component {
         full 
         light 
         style={styles.button}
-        onPress={() => this.props.navigation.navigate('Register')}>
+        onPress={() => this.recordUser()}>
           <Text>Cadastrar</Text>
         </Button>
       </Content>
