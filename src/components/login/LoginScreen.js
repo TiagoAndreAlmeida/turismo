@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
-import { Alert, Button, TextInput, View, StyleSheet } from 'react-native';
+import { StyleSheet } from 'react-native';
+import {Container, Text, Header, Content, Button,
+   Input, Label, Form, Item, Body, Title, Left, Right} from 'native-base';
 
 export default class Login extends Component {
   constructor(props) {
@@ -10,69 +12,60 @@ export default class Login extends Component {
       password: '',
     };
   }
-  
-  onLogin() {
-    const { username, password } = this.state;
-  }
 
   render() {
     return (
-        <View style={styles.container}>
-            <TextInput
-            value={this.state.username}
-            onChangeText={(username) => this.setState({ username })}
-            placeholder={'Username'}
-            style={styles.input}
-            />
-            <TextInput
-            value={this.state.password}
-            onChangeText={(password) => this.setState({ password })}
-            placeholder={'Password'}
-            secureTextEntry={true}
-            style={styles.input}
-            />
-            
-            <Button
-            title={'Login'}
-            style={styles.inputbutton}
-            onPress={() => this.props.navigation.push('Attractions')}        
-            />
-            
-            <Button
-            title={'Register'}
-            style={styles.inputbutton}
-            onPress={() => this.props.navigation.push('Register')}        
-            />
 
-        </View>
+      <Container style={styles.container}>
+        <Header>
+          <Left />
+          <Body>
+            <Title>Turismo</Title>
+          </Body>
+          <Right />
+        </Header>
+        <Content padder>
+          <Form style={styles.content}>
+            <Item floatingLabel>
+              <Label>Usuário</Label>
+              <Input onChangeText={(value) => this.setState({username: value})}/>
+            </Item>
+            <Item floatingLabel>
+              <Label>Senha</Label>
+              <Input onChangeText={(value) => this.setState({password: value})}/>
+            </Item>
+          </Form>
+          <Button 
+          full 
+          style={styles.button} 
+          onPress={() => this.props.navigation.navigate('Attractions')}>
+            <Text>Entrar</Text>
+          </Button>
+          <Button 
+          full 
+          light 
+          style={styles.button}
+          onPress={() => this.props.navigation.navigate('Register')}>
+            <Text>Cadastro</Text>
+          </Button>
+        </Content>
+      </Container>
     );
   }
 }
 
 const styles = StyleSheet.create({
   container: {
-    flex: 1,
-    alignItems: 'center',
-    justifyContent: 'center',
-    backgroundColor: '#ecf0f1',
+    flex: 1, 
   },
-  input: {
-    width: 200,
-    height: 44,
-    padding: 10,
-    borderWidth: 1,
-    borderColor: 'black',
-    marginBottom: 10,
+  content: {
+    
+    
   },
-  inputbutton: {
-    width: 200,
-    height: 44,
-    padding: 10,
-    borderWidth: 1,
-    borderColor: 'black',
-    marginBottom: 20,
-    flex: 2,
-    flexDirection: 'column',
-    justifyContent: 'space-between'
-  },
+  button:{
+    marginTop: 10,
+    marginRight: 10,
+    marginLeft: 10,
+  }
+
 });
