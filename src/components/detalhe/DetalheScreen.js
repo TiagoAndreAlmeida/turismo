@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-import {Image, FlatList, View} from 'react-native';
+import {Image} from 'react-native';
 import {Container, Header, Title, Right, Card, CardItem, Left, Body, Content, Text, Button, Icon} from 'native-base'
 
 export default class DetalheScreen extends Component {

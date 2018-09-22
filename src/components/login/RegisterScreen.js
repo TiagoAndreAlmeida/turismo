@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { StyleSheet } from 'react-native';
 import {Container, Text, Header, Content, Button,
-  Input, Label, Form, Item, Body, Title, Left, Right} from 'native-base';
+  Input, Label, Form, Item, Body, Title, Left, Right, Icon} from 'native-base';
 
 import {recordUser} from '../../services/UserService';
 
@@ -30,7 +30,11 @@ export default class Register extends Component {
     return (
       <Container style={styles.container}>
       <Header>
-        <Left />
+        <Left>
+            <Button transparent>
+              <Icon name='arrow-back' onPress={() => this.props.navigation.pop()} />
+            </Button>
+          </Left>
         <Body>
           <Title>Cadastro</Title>
         </Body>

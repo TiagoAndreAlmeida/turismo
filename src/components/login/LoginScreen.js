@@ -25,11 +25,12 @@ export default class Login extends Component {
       this.setState({
         users: users
       });
-      console.log(this.state.users);
+      
     })
   }
 
   onLogin () {
+    console.log(this.state.users);
     this.state.users.map( (value) => {
       if(this.state.username == value.name && this.state.password == value.password){
         this.props.navigation.navigate('Attractions');
@@ -38,6 +39,7 @@ export default class Login extends Component {
   }
 
   render() {
+    console.log(this.state.users);
     return (
 
       <Container style={styles.container}>
